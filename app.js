@@ -3,19 +3,19 @@ var express = require("express"),
     router = express.Router(),
     bodyParser = require("body-parser"),
     mongoose=require("mongoose"),
-    Recipe = require("./models/recipe");  
+    Serie = require("./models/serie");  
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    mongoose.connect('mongodb://rafalos:rafal1@ds111608.mlab.com:11608/hungr');
+    mongoose.connect('mongodb://rafalos:rafalos@ds223268.mlab.com:23268/series7');
 
 
 
 
 
-router.get("/recipes", function(req,res){
-    Recipe.find({}, function(err, foundRecipes){
+router.get("/series", function(req,res){
+    Serie.find({}, function(err, foundSeries){
         res.json({
-            recipes: foundRecipes
+            series: foundSeries
         })
     })
 })
