@@ -31,7 +31,13 @@ router.get("/series", function(req,res,next){
 })
 
 router.post("/series", function(req, res, next){
-    console.log(req.body)
+    Serie.create(req.body, function(err, createdSerie){
+        if(err){
+            console.log(err)
+        }else {
+            console.log(createdSerie)
+        }
+    })
 })
 
 ////////////////////
