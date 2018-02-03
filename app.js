@@ -17,7 +17,7 @@ mongoose.connect('mongodb://rafalos:rafalos@ds223268.mlab.com:23268/series7');
 ////FETCH ALL SERIES/////
 router.get("/series", function(req,res,next){
     Serie.find({}, function(err, foundSeries){
-        res.json({
+        res.jsonp({
             series: foundSeries
         })
     })
@@ -29,6 +29,6 @@ router.get("/series", function(req,res,next){
 
 
 app.use('/api', router);
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(process.env.port, process.env.IP, function(){
     console.log("server has started");
 })
