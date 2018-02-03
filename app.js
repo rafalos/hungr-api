@@ -3,19 +3,28 @@ var express = require("express"),
     router = express.Router(),
     bodyParser = require("body-parser"),
     mongoose=require("mongoose"),
-    Serie = require("./models/serie");
+    Serie = require("./models/serie"),
+    cors = require('cors');
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true })),
 app.use(bodyParser.json()),
 mongoose.connect('mongodb://rafalos:rafalos@ds223268.mlab.com:23268/series7');
 
-router.get("/series", function(req,res){
+
+
+
+////FETCH ALL SERIES/////
+router.get("/series", function(req,res,next){
     Serie.find({}, function(err, foundSeries){
         res.json({
             series: foundSeries
         })
     })
 })
+
+////////////////////
+
 
 
 
