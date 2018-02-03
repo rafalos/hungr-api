@@ -30,6 +30,10 @@ router.get("/series", function(req,res,next){
     })
 })
 
+router.post("/series", function(req, res, next){
+    console.log(req.body)
+})
+
 ////////////////////
 
 
