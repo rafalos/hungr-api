@@ -40,6 +40,19 @@ router.post("/series", function(req, res, next){
     })
 })
 
+router.get("/series/:id", function(req, res, next){
+    Serie.findById(req.params.id, function(err, foundSerie){
+        if(err) {
+            console.log(err)
+        } else {
+            res.jsonp({
+                serie: foundSerie
+            })
+        }
+    })
+})
+
+
 ////////////////////
 
 
