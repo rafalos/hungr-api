@@ -51,6 +51,12 @@ router.get("/series/:id", function(req, res, next){
         }
     })
 })
+
+router.post("/series/:id", function(req, res, next){
+    console.log(req.params.id)
+    console.log(req.body)
+})
+
 ////////////////////
 
 
