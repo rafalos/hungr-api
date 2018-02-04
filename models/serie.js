@@ -6,7 +6,8 @@ var serieSchema = mongoose.Schema({
         name: String,
         episodes: [{
             name: String,
-            duration: Number
+            duration: Number,
+            watched: Boolean
         }]
     }],
     coverImg: String,
