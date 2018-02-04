@@ -53,16 +53,25 @@ router.get("/series/:id", function(req, res, next){
 })
 
 router.post("/series/:id", function(req, res, next){
-    var season = req.body.seasonName;
+    console.log(season)
     Serie.findById(req.params.id, function(err, foundSerie){
         if(err){
             console.log(err)
         } else {
-            console.log(foundSerie)
-            foundSerie.season.episodes.push({
-                name: req.body.name,
-                duration: req.body.duration
-            })
+            for(var i=0; i<foundSerie.seasons.length; i++){
+                if(foundSerie.seasons[i].name == season) {
+                   console.log( foundSerie.seasons[i].name )
+                    foundSerie.seasons[i].episodes.push({
+                        name: req.body.name,
+                        duration: req.body.duration
+                    })
+                }
+            }
+
+            // foundSerie.season.episodes.push({
+            //     name: req.body.name,
+            //     duration: req.body.duration
+            // })
             foundSerie.save()
         }
     })
