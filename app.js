@@ -68,12 +68,10 @@ router.post("/series/:id", function(req, res, next){
                     })
                 }
             }
-
-            // foundSerie.season.episodes.push({
-            //     name: req.body.name,
-            //     duration: req.body.duration
-            // })
             foundSerie.save()
+            res.jsonp({
+                message: "done"
+            })
         }
     })
 })
