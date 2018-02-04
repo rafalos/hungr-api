@@ -70,7 +70,8 @@ router.post("/series/:id", function(req, res, next){
             }
             foundSerie.save()
             res.jsonp({
-                message: "done"
+                name: req.body.name,
+                duration: req.body.duration
             })
         }
     })
