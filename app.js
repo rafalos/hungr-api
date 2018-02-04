@@ -53,6 +53,7 @@ router.get("/series/:id", function(req, res, next){
 })
 
 router.post("/series/:id", function(req, res, next){
+    var season = req.body.seasonName;
     console.log(season)
     Serie.findById(req.params.id, function(err, foundSerie){
         if(err){
