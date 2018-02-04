@@ -2,7 +2,13 @@ var mongoose = require("mongoose");
 
 var serieSchema = mongoose.Schema({
     name: String,
-    seasons: [],
+    seasons: [{
+        name: String,
+        episodes: [{
+            name: String,
+            duration: Number
+        }]
+    }],
     coverImg: String,
     description: String
 
