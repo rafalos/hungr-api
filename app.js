@@ -74,6 +74,6 @@ router.post("/series/:id", function(req, res, next){
 
 
 app.use('/api', router);
-app.listen(process.env.IP, process.env.PORT, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
     console.log("server has started");
 })
