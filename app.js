@@ -2,7 +2,7 @@ var express = require("express"),
     app = express(),
     router = express.Router(),
     bodyParser = require("body-parser"),
-    mongoose=require("mongoose"),
+    mongoose = require("mongoose"),
     Serie = require("./models/serie"),
     cors = require('cors');
 
@@ -51,8 +51,6 @@ router.get("/series/:id", function(req, res, next){
         }
     })
 })
-
-
 ////////////////////
 
 
