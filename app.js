@@ -53,8 +53,14 @@ router.get("/series/:id", function(req, res, next){
 })
 
 router.post("/series/:id", function(req, res, next){
-    console.log(req.params.id)
-    console.log(req.body)
+    Serie.findById(req.params.id, function(err, foundSerie){
+        if(err){
+            console.log(err)
+        } else {
+            foundSerie.episodes.push(req.body)
+            foundSerie.save()
+        }
+    })
 })
 
 ////////////////////
