@@ -53,11 +53,16 @@ router.get("/series/:id", function(req, res, next){
 })
 
 router.post("/series/:id", function(req, res, next){
+    var season = req.body.seasonName;
     Serie.findById(req.params.id, function(err, foundSerie){
         if(err){
             console.log(err)
         } else {
-            foundSerie.episodes.push(req.body)
+            console.log(foundSerie)
+            foundSerie.season.episodes.push({
+                name: req.body.name,
+                duration: req.body.duration
+            })
             foundSerie.save()
         }
     })
@@ -69,6 +74,6 @@ router.post("/series/:id", function(req, res, next){
 
 
 app.use('/api', router);
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(process.env.IP, process.env.PORT, function(){
     console.log("server has started");
 })
