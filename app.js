@@ -70,7 +70,7 @@ router.post("/authenticate", function(req, res){
         }else {
             user.comparePassword(req.body.password, function(err, isMatch){
                 if(isMatch && !err) {
-                    var token = jwt.sign(user, config.secret, {
+                    var token = jwt.sign(user.toObject(), config.secret, {
                         expiresIn: 10000 /// seconds
                     });
                     res.json({
