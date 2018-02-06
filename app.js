@@ -76,7 +76,7 @@ router.post("/authenticate", function(req, res){
                     res.json({
                         success: true,
                         token: "JWT "+ token,
-                        expiresIn: expiresIn
+                        expiresIn: token.expiresIn
                     })
                 } else {
                     res.send({
