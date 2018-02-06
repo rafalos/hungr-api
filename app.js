@@ -101,7 +101,7 @@ router.get("/series", function(req,res,next){
     })
 })
 
-router.post("/series", function(req, res, next){
+router.post("/series", passport.authenticate("jwt", {session: false}), function(req, res, next){
     Serie.create(req.body, function(err, createdSerie){
         if(err){
             console.log(err)
@@ -123,7 +123,7 @@ router.get("/series/:id", function(req, res, next){
     })
 })
 
-router.post("/series/:id", passport.authenticate("jwt", {session: false}), function(req, res, next){
+router.post("/series/:id", function(req, res, next){
     var season = req.body.seasonName;
     console.log(season)
     Serie.findById(req.params.id, function(err, foundSerie){
@@ -154,6 +154,6 @@ router.post("/series/:id", passport.authenticate("jwt", {session: false}), funct
 
 
 app.use('/api', router);
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(process.env.POERT, process.env.IP, function(){
     console.log("server has started");
 })
