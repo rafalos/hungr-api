@@ -12,8 +12,8 @@ var UserSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    role: {
-        admin: Boolean,
+    admin: {
+        type: Boolean,
         default: false
     }
 });
