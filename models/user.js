@@ -13,9 +13,8 @@ var UserSchema = mongoose.Schema({
         required: true,
     },
     role: {
-        type: String,
-        enum: ["User", "Admin"],
-        default: "User"
+        admin: Boolean,
+        default: false
     }
 });
 
