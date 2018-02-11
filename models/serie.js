@@ -8,11 +8,12 @@ var serieSchema = mongoose.Schema({
         episodes: [{
             name: String,
             duration: Number,
-            watched: Boolean
+            watched: false
         }]
     }],
     coverImg: String,
-    description: String
+    description: String,
+    rates: []
 
 })
 
