@@ -102,12 +102,14 @@ router.get("/series", function(req,res,next){
     })
 })
 
-router.post("/series", passport.authenticate("jwt", {session: false}), function(req, res, next){
+router.post("/series", function(req, res, next){
     Serie.create(req.body, function(err, createdSerie){
         if(err){
             console.log(err)
         }else {
-            console.log(createdSerie)
+            res.jsonp({
+                message: "Succesfully created new serie"
+            })
         }
     })
 })
